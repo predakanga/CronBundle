@@ -16,6 +16,7 @@
         "symfony/symfony": "2.1.*",
         "doctrine/doctrine-bundle": "*"
     },
+    "minimum-stability": "dev",
     "autoload": {
         "psr-0": { "ColourStream\\Bundle\\CronBundle": "" }
     },
