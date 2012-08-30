@@ -1,12 +1,10 @@
 # ColourStream Cron Bundle
 
 This bundle provides a simple interface for registering repeated scheduled
-tasks within your application, 
-This bundle provides lower level support for functional tests on Symfony2.
-Through the concept of helpers and loaders, this bundle supports individual
-support for test types, such as Command, Controller, Service, Validator, etc.
+tasks within your application, including support for installs where the host
+does not allow for command-line access (TODO).
 
-This bundle requires that you are using, at least, Symfony 2.1.
+This bundle is tested only against Symfony 2.1. It will likely work with Symfony 2.0, but YMMV
 
 ## Installation
 
@@ -43,6 +41,11 @@ public function registerBundles()
 
     return $bundles;
 }
+```
+
+4. Update your DB schema
+```shell
+app/console doctrine:schema:update
 ```
 
 4. Start using the bundle:
