@@ -52,7 +52,7 @@ class CronJobResult
 
     public function __construct()
     {
-        $this->runAt = new DateTime();
+        $this->runAt = new \DateTime();
     }
     
     /**
