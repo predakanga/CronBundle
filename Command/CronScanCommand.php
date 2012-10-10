@@ -64,7 +64,7 @@ class CronScanCommand extends ContainerAwareCommand
                             $newTime = new \DateTime();
                             $newTime = $newTime->add(new \DateInterval($anno->value));
                             
-                            $currentJob->setInterval($anno->interval);
+                            $currentJob->setInterval($anno->value);
                             $currentJob->setNextRun($newTime);
                             $output->writeln("Updated interval for $job to {$anno->value}");
                         }
