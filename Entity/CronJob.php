@@ -44,7 +44,7 @@ class CronJob
     protected $enabled;
     
     /**
-     * @ORM\OneToMany(targetEntity="CronJobResult", mappedBy="job")
+     * @ORM\OneToMany(targetEntity="CronJobResult", mappedBy="job", cascade={"remove"})
      * @var ArrayCollection
      */
     protected $results;
