@@ -20,7 +20,8 @@ class CronEnableJobCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $jobName = $input->getArgument('job');
-        $em = $this->getContainer()->get("doctrine.orm.entity_manager");
+        $em = $this->getContainer()->get('doctrine')
+                   ->getManager($this->getContainer()->getParameter('colour_stream_cron.entitymanger'));
         $jobRepo = $em->getRepository('ColourStreamCronBundle:CronJob');
         
         $job = $jobRepo->findOneByCommand($jobName);

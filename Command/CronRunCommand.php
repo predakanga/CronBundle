@@ -28,7 +28,8 @@ class CronRunCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $start = microtime(true);
-        $em = $this->getContainer()->get("doctrine.orm.entity_manager");
+        $em = $this->getContainer()->get('doctrine')
+                   ->getManager($this->getContainer()->getParameter('colour_stream_cron.entitymanger'));
         $jobRepo = $em->getRepository('ColourStreamCronBundle:CronJob');
         
         $jobsToRun = array();
