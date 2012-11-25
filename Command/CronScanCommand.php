@@ -32,7 +32,8 @@ class CronScanCommand extends ContainerAwareCommand
     {
         $keepDeleted = $input->getOption("keep-deleted");
         $defaultDisabled = $input->getOption("default-disabled");
-        $em = $this->getContainer()->get('doctrine.orm.entity_manager');
+        $em = $this->getContainer()->get('doctrine')
+                   ->getManager($this->getContainer()->getParameter('colour_stream_cron.entitymanger'));
         
         // Enumerate the known jobs
         $jobRepo = $em->getRepository('ColourStreamCronBundle:CronJob');
