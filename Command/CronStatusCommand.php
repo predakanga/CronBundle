@@ -10,9 +10,8 @@ use Symfony\Component\Console\Input\InputInterface;
 
 use Symfony\Component\Console\Input\InputArgument;
 
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
-class CronStatusCommand extends ContainerAwareCommand
+class CronStatusCommand extends CronBaseCommand
 {
     protected function configure()
     {
@@ -20,13 +19,12 @@ class CronStatusCommand extends ContainerAwareCommand
              ->setDescription("Displays the current status of cron jobs")
              ->addArgument("job", InputArgument::OPTIONAL, "Show information for only this job");
     }
-    
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $em = $this->getContainer()->get('doctrine')
-                   ->getManager($this->getContainer()->getParameter('colour_stream_cron.entitymanger'));
+        $em = $this->getEntityManger();
         $output->writeln("Cron job statuses:");
-        
+
         $cronJobs = array();
         if($jobName = $input->getArgument('job'))
         {
@@ -44,7 +42,7 @@ class CronStatusCommand extends ContainerAwareCommand
         {
             $cronJobs = $em->getRepository('ColourStreamCronBundle:CronJob')->findAll();
         }
-        
+
         foreach($cronJobs as $cronJob)
         {
             $output->write(" - " . $cronJob->getCommand());

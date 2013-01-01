@@ -22,7 +22,7 @@ class ColourStreamCronExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container -> setParameter('colour_stream_cron.entitymanger', $config['entitymanger']);
+        $container -> setParameter('colour_stream_cron.entity_manager', $config['entity_manager']);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
