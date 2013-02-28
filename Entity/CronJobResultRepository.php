@@ -12,7 +12,7 @@ class CronJobResultRepository extends EntityRepository
                      ->createQuery("SELECT job.id, MAX(result.id) FROM ColourStreamCronBundle:CronJob job
                                                                   JOIN job.results result
                                                                   WHERE result.result = :code
-                                                                  GROUP BY result.job")
+                                                                  GROUP BY job.id")
                      ->setParameter('code', CronJobResult::SUCCEEDED)
                      ->getResult();
         
