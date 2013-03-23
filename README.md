@@ -12,14 +12,14 @@ Installing this bundle can be done through these simple steps:
 
 1. Add the bundle to your project as a composer dependency:
 ```javascript
-// composer.json
-{
-    // ...
-    require: {
+    // composer.json
+    {
         // ...
-        "colourstream/cron-bundle": "dev-master"
+        require: {
+            // ...
+            "colourstream/cron-bundle": "dev-master"
+        }
     }
-}
 ```
 
 2. Update your composer installation:
@@ -33,10 +33,10 @@ composer update
 public function registerBundles()
 {
 	// ...
-	$bundle = array(
-		// ...
+    $bundle = array(
+        // ...
         new ColourStream\Bundle\CronBundle\ColourStreamCronBundle(),
-	);
+    );
     // ...
 
     return $bundles;

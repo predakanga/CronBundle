@@ -1,17 +1,11 @@
 <?php
 namespace ColourStream\Bundle\CronBundle\Command;
 use ColourStream\Bundle\CronBundle\Entity\CronJobResult;
-
 use ColourStream\Bundle\CronBundle\Entity\CronJob;
-
 use Symfony\Component\Console\Output\OutputInterface;
-
 use Symfony\Component\Console\Input\InputInterface;
-
 use Symfony\Component\Console\Input\InputArgument;
-
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-
 class CronStatusCommand extends ContainerAwareCommand
 {
     protected function configure()

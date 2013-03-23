@@ -1,16 +1,11 @@
 <?php
 namespace ColourStream\Bundle\CronBundle\Command;
-
 use Fusion\Framework\CronBundle\Entity\CronJobResult;
-
 use Symfony\Component\Console\Output\OutputInterface;
-
 use Symfony\Component\Console\Input\InputInterface;
-
 use Symfony\Component\Console\Input\InputArgument;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-
 class CronPruneLogsCommand extends ContainerAwareCommand
 {
     protected function configure()
@@ -40,6 +35,7 @@ class CronPruneLogsCommand extends ContainerAwareCommand
             if(!$jobObj)
             {
                 $output->writeln("Couldn't find a job by the name of " . $job);
+
                 return CronJobResult::FAILED;
             }
             
