@@ -1,5 +1,7 @@
 <?php
+
 namespace ColourStream\Bundle\CronBundle\Command;
+
 use Symfony\Component\Console\Input\InputArgument;
 
 use Symfony\Component\Console\Output\OutputInterface;
@@ -12,9 +14,11 @@ class CronEnableJobCommand extends ContainerAwareCommand
 {
     protected function configure()
     {
-        $this->setName("cron:enable-job")
+        $this
+            ->setName("cron:enable-job")
              ->setDescription("Enables a cron job")
-             ->addArgument("job", InputArgument::REQUIRED, "Name of the job to enable");
+             ->addArgument("job", InputArgument::REQUIRED, "Name of the job to enable")
+        ;
     }
     
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -24,13 +28,14 @@ class CronEnableJobCommand extends ContainerAwareCommand
         $jobRepo = $em->getRepository('ColourStreamCronBundle:CronJob');
         
         $job = $jobRepo->findOneByCommand($jobName);
-        if(!$job)
-        {
+        if (!$job) {
             $output->writeln("Couldn't find a job by the name of " . $jobName);
+
             return CronJobResult::FAILED;
         }
         
         $job->setEnabled(true);
+        $em->persist($job);
         $em->flush();
         
         $output->writeln("Enabled cron job by the name of " . $jobName);
