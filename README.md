@@ -33,10 +33,10 @@ composer update
 public function registerBundles()
 {
 	// ...
-	$bundle = array(
-		// ...
+    $bundle = array(
+        // ...
         new ColourStream\Bundle\CronBundle\ColourStreamCronBundle(),
-	);
+    );
     // ...
 
     return $bundles;
