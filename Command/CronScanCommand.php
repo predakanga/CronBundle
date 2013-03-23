@@ -1,21 +1,13 @@
 <?php
 namespace ColourStream\Bundle\CronBundle\Command;
 use ColourStream\Bundle\CronBundle\Entity\CronJob;
-
 use Doctrine\ORM\EntityManager;
-
 use Symfony\Component\Console\Command\Command;
-
 use ColourStream\Bundle\CronBundle\Annotation\CronJob as CronJobAnno;
-
 use Symfony\Bundle\DoctrineBundle\Registry;
-
 use Symfony\Component\Console\Output\OutputInterface;
-
 use Symfony\Component\Console\Input\InputInterface;
-
 use Symfony\Component\Console\Input\InputOption;
-
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 class CronScanCommand extends ContainerAwareCommand

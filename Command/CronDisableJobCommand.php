@@ -1,13 +1,10 @@
 <?php
 namespace ColourStream\Bundle\CronBundle\Command;
+
 use Symfony\Component\Console\Input\InputArgument;
-
 use Symfony\Component\Console\Output\OutputInterface;
-
 use Symfony\Component\Console\Input\InputInterface;
-
 use ColourStream\Bundle\CronBundle\Entity\CronJobResult;
-
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 class CronDisableJobCommand extends ContainerAwareCommand

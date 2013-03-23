@@ -1,6 +1,5 @@
 <?php
 namespace ColourStream\Bundle\CronBundle\Command;
-
 use Symfony\Component\Console\Output\Output;
 
 /**
