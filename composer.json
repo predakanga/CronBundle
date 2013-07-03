@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "symfony/symfony": "2.1.*",
+        "symfony/symfony": "2.3.*",
         "doctrine/doctrine-bundle": "*"
     },
     "minimum-stability": "dev",
